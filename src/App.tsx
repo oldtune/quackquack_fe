@@ -1,7 +1,14 @@
 import Layout from "antd/es/layout/layout";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { useEffect } from "react";
+import { createBrowserRouter, NavLink, RouterProvider } from "react-router-dom";
 import "./App.css";
-import { Navbar } from "./Navbar/Navbar";
+import {
+  Navbar,
+  NavbarItemProps,
+  NavbarProps
+} from "./Components/Navbar/Navbar";
+import { PathContext } from "./Context/PathContext";
+import { Blog } from "./Pages/Blog/Blog";
 import { Home } from "./Pages/Home/Home";
 
 function App() {
@@ -10,12 +17,33 @@ function App() {
       path: "/",
       element: <Home />,
     },
+    {
+      path: "/blog",
+      element: <Blog />,
+    },
   ]);
+
+  const navbarItems: NavbarItemProps[] = [
+    { key: "home", label: <NavLink to="/">Home</NavLink> },
+    { key: "blog", label: <NavLink to="/blog">Blog</NavLink> },
+  ];
+
+  const navbarProps: NavbarProps = {
+    items: navbarItems,
+    selectedKeys: [],
+  };
+
+  useEffect(() => {
+    console.log("path changed");
+  }, [window.location.pathname]);
+
   return (
-    <Layout>
-      <Navbar />
-      <RouterProvider router={router} />
-    </Layout>
+    <PathContext.Provider value={{ path: "/" }}>
+      <Layout>
+        <Navbar {...navbarProps} />
+        <RouterProvider router={router}></RouterProvider>
+      </Layout>
+    </PathContext.Provider>
   );
 }
 

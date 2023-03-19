@@ -1,26 +1,29 @@
-import { useFrame, useThree } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber";
 import { useRef, useState } from "react";
 
 export const BoxMesh: any = () => {
-  let { camera } = useThree();
   let boxRef: any = useRef();
-  let [goNear, setgoNear] = useState(true);
+  //refer comment below
+  let [goNear, setgoNear] = useState(false);
+  const speed = 0.01;
+
   useFrame(({ clock }) => {
     let elapsedTime = clock.getElapsedTime();
-    let elapsedTimeTenThousand = elapsedTime / 10000;
 
     boxRef.current.rotation.x = elapsedTime;
     boxRef.current.rotation.y = elapsedTime;
     boxRef.current.rotation.z = elapsedTime;
 
-    if (boxRef.current.position.z == 0 || boxRef.current.position.z == 5) {
-      setgoNear(!goNear);
+    if (goNear) {
+      //first frame is 0 => z = 0 + elapsed 0 second would be 0;
+      boxRef.current.position.z += speed;
+    } else {
+      boxRef.current.position.z -= speed;
     }
 
-    if (goNear) {
-      boxRef.current.position.z += elapsedTimeTenThousand;
-    } else {
-      boxRef.current.position.z -= elapsedTimeTenThousand;
+    if (boxRef.current.position.z <= 0 || boxRef.current.position.z >= 4) {
+      //first time togggle to go near
+      setgoNear(!goNear);
     }
   });
 
