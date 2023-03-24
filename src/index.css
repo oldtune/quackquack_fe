@@ -23,4 +23,10 @@ code {
 
 .ant-layout {
   height: 100%;
+  /* flex-basis: 100%; */
+}
+
+.ant-list {
+  /* flex-grow: 1; */
+  flex-basis: 100%;
 }
