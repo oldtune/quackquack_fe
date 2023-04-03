@@ -8,15 +8,16 @@ export type ProfileSideBarProps = {
   location: string;
   position: string;
   avatarSource: string;
+  introduction: string;
 };
 
 export const ProfileSideBar: React.FC = () => {
   return (
-    <div className="profile-side-bar flex">
-      <div className="profile-avatar-container flex">
+    <div className="profile-side-bar flex flex-1 flex-row flex-wrap">
+      <div className="profile-avatar-container flex flex-1">
         <ProfileAvatar />
       </div>
-      <div className="personal-info">
+      <div className="personal-info font-mono">
         <p>
           <b>Name:</b> Do Tran
         </p>
