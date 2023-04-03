@@ -4,6 +4,7 @@ export type BlogPostProps = {
   description: string;
   date: string;
   coverImageUrl?: string;
+  key: string;
 };
 
 export const BlogPost: React.FC<BlogPostProps> = (props) => {

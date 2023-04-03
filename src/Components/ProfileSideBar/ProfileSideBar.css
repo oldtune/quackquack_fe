@@ -1,0 +1,11 @@
+.profile-side-bar {
+}
+
+.profile-avatar-container.flex {
+  justify-content: center;
+}
+
+.personal-info {
+  padding-left: 15px;
+  padding-right: 15px;
+}

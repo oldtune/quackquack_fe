@@ -1,10 +1,13 @@
-import { List } from "antd";
+import { Collapse, List } from "antd";
 import { BlogPost, BlogPostProps } from "../BlogPost/BlogPost";
 import "./BlogList.css";
 
+const { Panel } = Collapse;
+
 export type BlogListProps = {
   blogPosts: BlogPostProps[];
-  source: string;
+  platform: string;
+  platformId: string;
 };
 
 export const BlogList: React.FC<BlogListProps> = (props) => {
@@ -19,8 +22,6 @@ export const BlogList: React.FC<BlogListProps> = (props) => {
     pageSize: Number.MAX_VALUE,
   };
 
-  const dataSource = [];
-
   const imageConstructor = (item: any) => {
     return <img alt="title" src="https://google.com/" />;
   };
@@ -33,27 +34,35 @@ export const BlogList: React.FC<BlogListProps> = (props) => {
     //   <div>{blogPosts}</div>
     // </div>
     <div className="blog-list">
-      <List
-        itemLayout="vertical"
-        size="large"
-        pagination={{
-          onChange: (page) => console.log(page),
-          pageSize: Number.MAX_VALUE,
-        }}
-        dataSource={[{ key: 1 }, { key: 2 }]}
-        renderItem={(item) => (
-          <List.Item
-            key={item.key}
-            extra={
-              <img width={272} alt="Cover image" src="https://google.com/" />
-            }
-          >
-            <List.Item.Meta title="quack" description="Quack">
-              See ya
-            </List.Item.Meta>
-          </List.Item>
-        )}
-      />
+      <Collapse>
+        <Panel header={props.platform} key={props.platformId}>
+          <List
+            itemLayout="vertical"
+            size="large"
+            pagination={{
+              onChange: (page) => console.log(page),
+              pageSize: Number.MAX_VALUE,
+            }}
+            dataSource={[...props.blogPosts]}
+            renderItem={(item) => (
+              <List.Item
+                key={item.key}
+                extra={
+                  <img
+                    width={271}
+                    alt="Cover image"
+                    src="https://google.com/"
+                  />
+                }
+              >
+                <List.Item.Meta title="quack" description="Quack">
+                  See ya
+                </List.Item.Meta>
+              </List.Item>
+            )}
+          />
+        </Panel>
+      </Collapse>
     </div>
   );
 };

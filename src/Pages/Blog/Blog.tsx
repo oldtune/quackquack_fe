@@ -3,7 +3,7 @@ import { BlogListProps } from "../../Components/BlogList/BlogList";
 import { BlogListContainer } from "../../Components/BlogListContainer/BlogListContainer";
 import "./Blog.css";
 
-export type BlogPostGroupBySource = {};
+// export type BlogPostGroupBySource = {};
 export const Blog: React.FC = () => {
   const [blogLists, setBlogLists] = useState<BlogListProps[]>([]);
 
@@ -17,15 +17,19 @@ export const Blog: React.FC = () => {
             title: "Test blog post on medium",
             url: "https://medium.com/",
             coverImageUrl: "https://google.com/saxsuke",
+            key: "sac",
           },
         ],
-        source: "Medium",
+        platform: "Medium",
+        platformId: "medium",
       },
     ];
+
     setBlogLists(blogListsData);
   }, []);
+
   return (
-    <div className="blog-page">
+    <div className="blog-page flex">
       <BlogListContainer items={blogLists} />
     </div>
   );

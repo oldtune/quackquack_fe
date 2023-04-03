@@ -12,7 +12,7 @@ export const MainPage: React.FC = () => {
   const navbarItems: NavbarItemProps[] = [
     { key: "home", label: <NavLink to="/">Home</NavLink> },
     { key: "blog", label: <NavLink to="/blog">Blog</NavLink> },
-    // { key: "about", label: <NavLink to="/about">About</NavLink> },
+    { key: "profile", label: <NavLink to="/profile">Profile</NavLink> },
   ];
 
   let location = useLocation();

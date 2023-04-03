@@ -8,7 +8,7 @@ export type BlogListContainerProps = {
 export const BlogListContainer: React.FC<BlogListContainerProps> = (props) => {
   let blogList = props.items.map((item) => <BlogList {...item} />);
   return (
-    <div className="blog-list-container" key={1}>
+    <div className="blog-list-container flex" key={1}>
       {blogList}
     </div>
   );
