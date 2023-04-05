@@ -1,0 +1,8 @@
+.ant-timeline-item-content {
+  min-width: fit-content;
+  max-width: 300px;
+}
+
+.ant-timeline-item-label {
+  width: fit-content;
+}

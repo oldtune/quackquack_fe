@@ -24,7 +24,7 @@ export const MainPage: React.FC = () => {
   };
 
   return (
-    <Layout>
+    <Layout className="bg-slate-800 h-full">
       <Header>
         <Navbar {...navbarProps} />
       </Header>
