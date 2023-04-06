@@ -1,4 +1,4 @@
-import { Col, Divider, Row } from "antd";
+import { Col, Row } from "antd";
 import { Education } from "../../Components/Education/Education";
 import { ProfileSideBar } from "../../Components/ProfileSideBar/ProfileSideBar";
 import { Showcase } from "../../Components/ShowCase/Showcase";
@@ -16,16 +16,19 @@ export const Profile: React.FC = () => {
       >
         <ProfileSideBar />
       </Col>
-      <Col md={16} span={24} className="border bg-sky-200 box-shadow-lift">
-        <h1>Summary</h1>
-        <Divider />
-        <Summary />
-        <h1>Showcase</h1>
-        <Divider />
-        <Showcase />
-        <h1 className="font-bold">Education</h1>
-        <Divider />
-        <Education educationList={[]} />
+      <Col md={16} span={24} className="px-4 border bg-sky-200 box-shadow-lift">
+        <div>
+          <span className="text-xl">Summary</span>
+          <Summary />
+        </div>
+        <div>
+          <span className="text-xl">Showcase</span>
+          <Showcase />
+        </div>
+        <div>
+          <span className="text-xl">Education</span>
+          <Education educationList={[]} />
+        </div>
       </Col>
     </Row>
   );

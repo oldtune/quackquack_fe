@@ -1,4 +1,3 @@
-import { Text } from "@react-three/drei";
 import { Position } from "../Position";
 
 export type TextMeshProps = {
@@ -9,8 +8,14 @@ export type TextMeshProps = {
 export const TextMesh: React.FC<TextMeshProps> = ({ position, content }) => {
   return (
     <mesh>
-      <Text position={[position.x, position.y, position.z]}>{content}</Text>
+      <planeGeometry />
       <meshStandardMaterial />
     </mesh>
   );
+  // return (
+  // <mesh>
+  //   <Text position={[position.x, position.y, position.z]}>{content}</Text>
+  //   <meshStandardMaterial />
+  // </mesh>
+  // );
 };

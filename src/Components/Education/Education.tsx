@@ -74,33 +74,10 @@ export const Education: React.FC<EducationProps> = (props) => {
       span={24}
       md={6}
       style={{ height: "100px" }}
-      className=" text-center box-shadow-lift-2"
+      className=" text-left box-shadow-lift-2"
     >
-      Cao Thang Technical College
-    </Col>,
-    <Col
-      span={24}
-      md={6}
-      style={{ height: "100px" }}
-      className=" text-center box-shadow-lift-2"
-    >
-      Duc Hoa Highschool
-    </Col>,
-    <Col
-      span={24}
-      md={6}
-      style={{ height: "100px" }}
-      className=" box-shadow-lift-2"
-    >
-      Duc Hoa Highschool
-    </Col>,
-    <Col
-      span={24}
-      md={6}
-      style={{ height: "100px" }}
-      className=" box-shadow-lift-2"
-    >
-      Duc Hoa Highschool
+      I studied information technology at Cao Thang Technical College from 2016
+      - 2019
     </Col>,
   ];
 
